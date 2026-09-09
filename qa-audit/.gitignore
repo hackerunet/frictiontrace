@@ -1,0 +1,10 @@
+# Credenciales. Nunca se commitean; .env.example documenta las claves esperadas.
+.env
+
+# Salida generada. Las corridas son evidencia y pesan ~32 MB cada una; los reportes
+# derivados se regeneran con `npm run pipeline:reports`.
+reports/
+logs/
+
+node_modules/
+.DS_Store

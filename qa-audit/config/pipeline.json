@@ -1,0 +1,46 @@
+{
+  "_comment": "Tunables for the automated pipeline. The step order lives in bin/run-all.js, where it is executable and commented; only values that a person might reasonably change belong here.",
+
+  "series": {
+    "_comment": "Which DAYS the comparison reports put side by side, and how the three readings inside a day become one number. A column is a day, not an execution: one reading is a sample of a noisy process, three averaged give a midpoint that describes the day plus a spread that says whether the readings agreed. Baselines are pinned because they are the reference the whole investigation is measured against; recentDays follows the schedule automatically.",
+    "baselineDays": ["20260722", "20260805"],
+    "recentDays": 3,
+
+    "_aggregateComment": "How a day's readings collapse to one figure: 'mean' or 'median'. mean is the default because it uses all three readings; median discards two but is immune to a single wild one. Either way the reports print n and mark the cells whose readings disagree, so a mean being dragged by one bad run is visible rather than hidden.",
+    "aggregate": "mean",
+
+    "_dispersionComment": "Relative spread — (max-min)/value — above which a day's readings are treated as disagreeing and the cell is marked. This is a within-store, same-day, same-method comparison: the only population where a difference means something other than two different businesses or two different measuring regimes.",
+    "dispersionWarn": 0.4,
+    "_hangComment": "Seconds above which a step is treated as a hang rather than a slow page, and dropped before it can enter an average. Across 1,175 measurements spanning four months the highest legitimate value is 90s (an operator-assisted payment step) and the highest automated one is 76s; the only figure above that is a 655s stall. 120s sits well clear of anything real and well below the stall. Dropped values are counted and reported, never silently swallowed.",
+    "_hangRule": "A stall is judged against the store's own median for that stage, not an absolute number. An absolute 120s ceiling was tried first and got it wrong: Walmart NI's payment step runs a reproducible 136s median across 38 readings, and the flat limit deleted the worst payment step in the chain every single time. A value is dropped only when it is both above hangFloorSeconds and more than hangFactor times that store's own median for the stage.",
+    "hangFactor": 5,
+    "hangFloorSeconds": 60,
+    "hangCeilingSeconds": 120,
+
+    "_epochComment": "A rule introduced today applies from today forward. A figure captured before this date is what it was measured to be, and no filter added later may alter it — otherwise a published report changes underneath a reader who already acted on it. The ceiling happens not to touch any of the 880 historical measurements (the highest is 90s), but relying on that coincidence would leave the guarantee to luck.",
+    "rulesEffectiveFrom": "20260821",
+
+    "_coverageComment": "Fraction of the 13 storefronts a run must have captured before it may become a column in a comparison. An interrupted execution that got three stores is not a measurement of the chain — charting it would read as ten storefronts having gone to zero. Such runs stay on disk and stay listed in the portal; they are only kept out of the comparisons.",
+    "minStoreCoverage": 0.6,
+
+    "_excludeComment": "Captures that are on disk but are not measurements. 20260811/20260812 sent a custom request header that forced a CORS preflight; the CDN rejected it and a quarter of each page failed to load, which makes the storefront look faster. They stay excluded from every comparison but remain visible in comparativo-historico.html, which exists to document the episode.",
+    "excludeRuns": ["20260811", "20260812"]
+  },
+
+  "capture": {
+    "_comment": "Flags handed to scripts/capture/audit-auth.js. delay/store-delay honour the throttling rule in ../CLAUDE.md: this is measurement, not load testing.",
+    "args": ["--delay", "1500", "--store-delay", "5000", "--nav-timeout", "60000"],
+    "timeoutMinutes": 90
+  },
+
+  "schedule": {
+    "_comment": "Three executions a day. Local time. Used to generate the launchd/cron definitions in bin/.",
+    "times": ["08:00", "15:00", "20:00"],
+    "timezone": "America/Guatemala"
+  },
+
+  "retention": {
+    "_comment": "Runs older than this are candidates for pruning by bin/prune-runs.js. Nothing is deleted automatically.",
+    "keepRuns": 90
+  }
+}

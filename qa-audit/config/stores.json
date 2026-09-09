@@ -1,0 +1,17 @@
+{
+  "stores": [
+    { "id": "walmart-gt",     "label": "Walmart Guatemala",     "domain": "www.walmart.com.gt",             "country": "GT", "account": "walmartgt",   "gtmContainer": "GTM-5CJG27W" },
+    { "id": "walmart-cr",     "label": "Walmart Costa Rica",    "domain": "www.walmart.co.cr",              "country": "CR", "account": "walmartcr",   "gtmContainer": "GTM-5J23KWW" },
+    { "id": "walmart-hn",     "label": "Walmart Honduras",      "domain": "www.walmart.com.hn",             "country": "HN", "account": "walmarthn",   "gtmContainer": "GTM-K872N4P" },
+    { "id": "walmart-sv",     "label": "Walmart El Salvador",   "domain": "www.walmart.com.sv",             "country": "SV", "account": "walmartsv",   "gtmContainer": "GTM-P6QCSWK" },
+    { "id": "walmart-ni",     "label": "Walmart Nicaragua",     "domain": "www.walmart.com.ni",             "country": "NI", "account": "walmartni",   "gtmContainer": "GTM-K2P49N2" },
+    { "id": "masxmenos-cr",   "label": "Mas x Menos CR",        "domain": "www.masxmenos.cr",               "country": "CR", "account": "masxmenoscr", "gtmContainer": "GTM-5CLDLX8" },
+    { "id": "paiz-gt",        "label": "Paiz Guatemala",        "domain": "www.paiz.com.gt",                "country": "GT", "account": "paizgt",      "gtmContainer": "GTM-NZFSL7S" },
+    { "id": "paiz-hn",        "label": "Paiz Honduras",         "domain": "www.paiz.com.hn",                "country": "HN", "account": "paizhn",      "gtmContainer": "GTM-TP3X3X8" },
+    { "id": "ladespensa-sv",  "label": "La Despensa SV",        "domain": "www.ladespensadedonjuan.com.sv", "country": "SV", "account": "despensasv",  "gtmContainer": "GTM-PV4WNRH" },
+    { "id": "launion-ni",     "label": "La Union Nicaragua",    "domain": "www.launion.com.ni",             "country": "NI", "account": "launionni",   "gtmContainer": "GTM-PNNQZH2" },
+    { "id": "maxipali-cr",    "label": "MaxiPali Costa Rica",   "domain": "www.maxipali.co.cr",             "country": "CR", "account": "maxipalicr",  "gtmContainer": "GTM-5P7V7DM" },
+    { "id": "maxidespensa-gt","label": "MaxiDespensa Guatemala","domain": "www.maxidespensa.com.gt",        "country": "GT", "account": "bodegagt",    "gtmContainer": "GTM-M29HML3" },
+    { "id": "maxidespensa-sv","label": "MaxiDespensa SV",       "domain": "www.maxidespensa.com.sv",        "country": "SV", "account": "bodegasv",    "gtmContainer": "GTM-MNM6R4G" }
+  ]
+}

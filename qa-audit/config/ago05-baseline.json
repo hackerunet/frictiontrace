@@ -1,0 +1,14 @@
+{
+  "_provenance": "Per-stage navigation times published in reportesaproducir/comparativo-julio-agosto.html for the 2026-08-04/05 window. The three stores below were captured on Aug 5 via DevTools trace import (mode: 'trace-import'), which stored only session-level totals — the per-stage breakdown exists nowhere else in the repo, so these published figures are carried forward verbatim rather than recomputed.",
+  "_caveats": {
+    "walmart-cr.search": "0.34s is anomalous — flagged in the original report as a likely trace-capture artifact, not a real measurement.",
+    "email": "The ~1.0s email times across all three stores come from an in-page hash route change on an already-loaded checkout, not a cold navigation. They are not comparable to the July or Aug-11 cold-cache measurements."
+  },
+  "date": "2026-08-05",
+  "label": "Agosto 05",
+  "stores": {
+    "walmart-cr":      { "homepage": 32.25, "login": 14.55, "search": 0.34, "pdp": 11.33, "cart": 5.72,  "email": 1.03, "shipping": 16.82, "payment": 8.02 },
+    "walmart-gt":      { "homepage": 13.39, "login": 30.19, "search": 7.27, "pdp": 8.53,  "cart": 7.12,  "email": 1.02, "shipping": 7.47,  "payment": 6.93 },
+    "maxidespensa-gt": { "homepage": 38.66, "login": 22.69, "search": 3.47, "pdp": 9.59,  "cart": 13.72, "email": 1.03, "shipping": 24.65, "payment": 6.18 }
+  }
+}

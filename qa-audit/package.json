@@ -1,0 +1,30 @@
+{
+  "name": "walmart-cam-qa-audit",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Playwright customer-journey performance audit for Walmart CAM VTEX IO storefronts — scheduled pipeline",
+  "scripts": {
+    "pipeline": "node bin/run-all.js",
+    "pipeline:reports": "node bin/run-all.js --skip-capture",
+    "pipeline:plan": "node bin/run-all.js --dry-run",
+
+    "capture": "node scripts/capture/audit-auth.js",
+    "capture:interactive": "node scripts/capture/interactive.js",
+    "capture:anon": "node scripts/capture/audit.js",
+
+    "report:comparativo": "node scripts/reports/comparativo.js",
+    "report:consolidado": "node scripts/reports/comparativo-consolidado.js",
+    "report:ejecutivos": "node scripts/reports/resumen-ejecutivo.js",
+    "report:trend": "node scripts/reports/trend-report.js",
+    "report:index": "node scripts/reports/index.js",
+    "report:historico": "node scripts/reports/comparativo-historico.js",
+    "report:render": "node scripts/reports/render-from-json.js",
+
+    "runs": "node -e \"const P=require('./lib/paths');for(const r of P.listRuns())console.log(r.id.padEnd(16), P.hasCaptures(r.dir)?'':'(vacía)', r.dir)\"",
+    "prune": "node bin/prune-runs.js",
+    "schedule": "bash bin/install-schedule.sh"
+  },
+  "dependencies": {
+    "playwright": "^1.62.1"
+  }
+}

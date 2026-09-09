@@ -1,0 +1,210 @@
+{
+  "_comment": "Releases to evaluate for performance impact. Scope is written out as explicit store ids so the evaluation can never quietly widen: a release published only in Guatemala is measured only on Guatemalan storefronts. Dates are the publication date reported by the team.",
+  "_formats": "WM = Walmart · SP/SU = Súper (Paiz, Mas x Menos, La Despensa, La Union) · BO = Bodegas (MaxiPali, MaxiDespensa)",
+  "releases": [
+    {
+      "id": "CAMECOM-54799",
+      "date": "20260810",
+      "title": "HU backend",
+      "detail": "Mejora declarada de 0,07 s",
+      "scopeLabel": "Todas las tiendas",
+      "stores": "all",
+      "stages": "all",
+      "stagesWhy": "Cambio de backend: puede aparecer en cualquier paso servido, así que se mide el recorrido completo."
+    },
+    {
+      "id": "tag-cambio-ni",
+      "date": "20260819",
+      "title": "Optimización del tag de tipo de cambio",
+      "scopeLabel": "La Union NI",
+      "stores": [
+        "launion-ni"
+      ],
+      "stages": "all",
+      "stagesWhy": "Un tag afecta el renderizado y el tiempo de carga de cualquier página, no un paso concreto."
+    },
+    {
+      "id": "CAMECOM-44221-sv",
+      "date": "20260819",
+      "title": "Manejo de errores y rehabilitación de UI en login y store selector",
+      "detail": "CAMECOM-44221, primera ola",
+      "scopeLabel": "WM SV",
+      "stores": [
+        "walmart-sv"
+      ],
+      "stages": [
+        "login",
+        "homepage"
+      ],
+      "stagesWhy": "El flujo de login y el selector de tienda, que vive en la Home."
+    },
+    {
+      "id": "pdp-connect-bo",
+      "date": "20260810",
+      "title": "Reingeniería de código PDP (Connect)",
+      "scopeLabel": "Formato Bodegas",
+      "stores": [
+        "maxipali-cr",
+        "maxidespensa-gt",
+        "maxidespensa-sv"
+      ],
+      "stages": [
+        "pdp"
+      ],
+      "stagesWhy": "Reingeniería del código de la PDP: solo puede verse en el detalle de producto."
+    },
+    {
+      "id": "pdp-connect-sp",
+      "date": "20260812",
+      "title": "Reingeniería de código PDP (Connect)",
+      "scopeLabel": "Formato Súper",
+      "stores": [
+        "masxmenos-cr",
+        "paiz-gt",
+        "paiz-hn",
+        "ladespensa-sv",
+        "launion-ni"
+      ],
+      "stages": [
+        "pdp"
+      ],
+      "stagesWhy": "Reingeniería del código de la PDP: solo puede verse en el detalle de producto."
+    },
+    {
+      "id": "factura-cr",
+      "date": "20260824",
+      "title": "Mejoras de facturación electrónica web",
+      "scopeLabel": "Costa Rica",
+      "stores": [
+        "walmart-cr",
+        "masxmenos-cr",
+        "maxipali-cr"
+      ],
+      "stages": [
+        "payment"
+      ],
+      "stagesWhy": "La facturación electrónica ocurre en el paso de pago; es el único sitio donde puede impactar.",
+      "omitir": true,
+      "omitirMotivo": "Excluida del reporte por decisión del equipo."
+    },
+    {
+      "id": "factura-gt",
+      "date": "20260825",
+      "title": "Mejoras de facturación electrónica web",
+      "scopeLabel": "Guatemala",
+      "stores": [
+        "walmart-gt",
+        "paiz-gt",
+        "maxidespensa-gt"
+      ],
+      "stages": [
+        "payment"
+      ],
+      "stagesWhy": "La facturación electrónica ocurre en el paso de pago; es el único sitio donde puede impactar.",
+      "omitir": true,
+      "omitirMotivo": "Excluida del reporte por decisión del equipo."
+    },
+    {
+      "id": "CAMECOM-56208",
+      "date": "20260826",
+      "title": "Bloques fold para diferir contenido secundario en Home y PDP",
+      "detail": "Store Themes · INC54616486",
+      "scopeLabel": "GT — Walmart, Súper y Bodegas",
+      "stores": [
+        "walmart-gt",
+        "paiz-gt",
+        "maxidespensa-gt"
+      ],
+      "stages": [
+        "homepage",
+        "pdp"
+      ],
+      "stagesWhy": "Los bloques fold se implementaron en Home y PDP; fuera de esas dos páginas no hay nada que diferir.",
+      "scopeNote": "Guatemala únicamente, con sus tres formatos: Walmart, Súper (Paiz) y Bodegas (MaxiDespensa). La etiqueta \"GT — Walmart, Súper, Bodegas\" enumera los formatos dentro del país, no los países. Las diez tiendas del resto de la cadena quedan como grupo de contraste."
+    },
+    {
+      "id": "tags-2708",
+      "date": "20260827",
+      "title": "Tag de tipo de cambio + eliminación de tags",
+      "detail": "Dos liberaciones el mismo día sobre el mismo alcance; su efecto no se puede separar.",
+      "scopeLabel": "Todas las tiendas",
+      "stores": "all",
+      "scopeNote": "El listado original mencionaba solo WM HN, BO CR y BO GT. El reporte final de GTM confirma que el cambio de tags se aplicó a las 13 tiendas, así que el alcance se corrigió aquí.",
+      "stages": "all",
+      "stagesWhy": "Tocar tags cambia el renderizado y la carga total, y puede notarse en todo el recorrido o en un solo tramo."
+    },
+    {
+      "id": "CAMECOM-56210",
+      "date": "20260902",
+      "title": "Migración y optimización de Countdown Home hacia Shared UI",
+      "detail": "INC54616628",
+      "scopeLabel": "GT — Walmart, Súper y Bodegas",
+      "stores": [
+        "walmart-gt",
+        "paiz-gt",
+        "maxidespensa-gt"
+      ],
+      "stages": [
+        "homepage"
+      ],
+      "stagesWhy": "El Countdown vive en la Home.",
+      "scopeNote": "Guatemala únicamente, con sus tres formatos: Walmart, Súper (Paiz) y Bodegas (MaxiDespensa). La etiqueta \"GT — Walmart, Súper, Bodegas\" enumera los formatos dentro del país, no los países. Las diez tiendas del resto de la cadena quedan como grupo de contraste."
+    },
+    {
+      "id": "sponsored-brand",
+      "date": "20260902",
+      "title": "Optimización Sponsored Brand Home (Connect)",
+      "scopeLabel": "Todos los formatos",
+      "stores": "all",
+      "stages": [
+        "homepage"
+      ],
+      "stagesWhy": "Sponsored Brand se renderiza en la Home."
+    },
+    {
+      "id": "CAMECOM-44221-gtcr",
+      "date": "20260902",
+      "title": "Manejo de errores y rehabilitación de UI en login y store selector",
+      "detail": "CAMECOM-44221, segunda ola",
+      "scopeLabel": "WM GT y SP CR",
+      "stores": [
+        "walmart-gt",
+        "masxmenos-cr"
+      ],
+      "stages": [
+        "login",
+        "homepage"
+      ],
+      "stagesWhy": "El flujo de login y el selector de tienda, que vive en la Home."
+    },
+    {
+      "id": "factura-sv",
+      "date": "20260903",
+      "title": "Mejoras de facturación electrónica web",
+      "scopeLabel": "El Salvador",
+      "stores": [
+        "walmart-sv",
+        "ladespensa-sv",
+        "maxidespensa-sv"
+      ],
+      "stages": [
+        "payment"
+      ],
+      "stagesWhy": "La facturación electrónica ocurre en el paso de pago; es el único sitio donde puede impactar.",
+      "omitir": true,
+      "omitirMotivo": "Excluida del reporte por decisión del equipo."
+    },
+    {
+      "id": "borrado-logs",
+      "date": null,
+      "title": "Borrado de logs",
+      "detail": "Sigue en proceso; sin fecha de liberación",
+      "scopeLabel": "Sin definir",
+      "stores": "all",
+      "stages": "all",
+      "stagesWhy": "Sin alcance declarado; se mediría el recorrido completo."
+    }
+  ],
+  "_stagesComment": "Stages a release can plausibly affect. Measuring a payment-flow change against homepage time compares pages the release never touched, so scope is declared for stages as well as storefronts. \"all\" means the whole journey.",
+  "_omitirComment": "Releases kept on the record but left out of the report. They stay here rather than being deleted so the list still reflects what was published, and so removing one is a decision that can be seen and reversed."
+}
